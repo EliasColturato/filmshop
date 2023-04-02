@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
+import Header from '../../components/header';
 import { APIKey } from '../../config/key';
 import api from '../../services/api';
+
+import { WrapperHome } from './homeStyle';
 
 interface FilmProps {
   id: number;
@@ -28,15 +31,18 @@ export default function Home() {
 
   return (
     <>
-      <h1>Home page</h1>
+      <Header />
+      <WrapperHome>
+        {/* <h1>Home page</h1>
       {filmList.map(item => {
         return (
           <div key={item.id}>
-            <img src={`${image_path}/${item.backdrop_path}`} alt="" />
-            <p>{item.title}</p>
+          <img src={`${image_path}/${item.backdrop_path}`} alt="" />
+          <p>{item.title}</p>
           </div>
-        );
-      })}
+          );
+        })} */}
+      </WrapperHome>
     </>
   );
 }

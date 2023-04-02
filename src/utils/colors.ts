@@ -1,0 +1,15 @@
+export const Color = {
+  primaryColor: '#6C63FF',
+  primaryColor50: '#8B81FF',
+  primaryColor25: '#B6A5FF',
+  secondaryColor: '#1c1c1c',
+  secondryColor50: '#333333',
+  secondaryColor25: '#555555',
+  primaryVar1: '#422F87',
+  primaryVar2: '#563D94',
+  primaryVar3: '#7048b8',
+  secondaryVar1: '#212121',
+  secondaryVar2: '#424242',
+  secondaryVar3: '#616161',
+  white: '#ffffff',
+};
