@@ -1,6 +1,13 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { APIKey } from '../../config/key';
+import FilmCard from '../../components/filmCard';
+
+import { Link } from 'react-router-dom';
+
+import { ShelfFilms } from '../home/homeStyle';
+import { WrapperSimilar } from './similarStyle';
+import Header from '../../components/header';
 
 interface FilmProps {
   id: number;
@@ -26,16 +33,23 @@ export default function Similar() {
   });
 
   return (
-    <>
+    <WrapperSimilar>
+      <Header />
       <h1>Filmes parecidos</h1>
-      {listSimilar.map(item => {
-        return (
-          <div key={item.id}>
-            <h1>{item.title}</h1>
-            <p>{item.overview}</p>
-          </div>
-        );
-      })}
-    </>
+      <ShelfFilms>
+        {listSimilar.map(item => {
+          return (
+            <Link to={`/details/${item.id}`}>
+              <FilmCard
+                key={item.id}
+                backdrop_path={item.backdrop_path}
+                overview={item.overview}
+                title={item.title}
+              />
+            </Link>
+          );
+        })}
+      </ShelfFilms>
+    </WrapperSimilar>
   );
 }

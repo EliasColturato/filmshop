@@ -4,7 +4,12 @@ import { Link } from 'react-router-dom';
 
 import { useParams } from 'react-router-dom';
 
-import { WrapperDetail, NavDetail, WrapperCardDetail } from './styleDetails';
+import {
+  WrapperDetail,
+  NavDetail,
+  WrapperCardDetail,
+  ControllCard,
+} from './styleDetails';
 
 interface FilmProps {
   id: number;
@@ -35,32 +40,37 @@ export default function Details() {
     )
       .then(response => response.json())
       .then(data => setFilmDetail(data));
-  }, []);
+  }, [id]);
   const linkTrailer = `https://www.youtube.com/results?search_query=${filmDetails.title}+Trailer+Dublado`;
 
   return (
     <WrapperDetail>
       <NavDetail>
+        <Link to={'/'}>
+          <button>Voltar</button>
+        </Link>
         <h1>{filmDetails.title}</h1>
       </NavDetail>
-      <WrapperCardDetail>
-        <img
-          src={`${image_path}${filmDetails.poster_path}`}
-          alt={`${filmDetails.title}`}
-        />
-        <div>
-          <p>{filmDetails.overview}</p>
-          <button>
-            <a href={`${linkTrailer}`} target="_blank" rel="noreferrer">
-              Trailer
-            </a>
-          </button>
-          <Link to={`/similar/${filmDetails.id}`}>
-            <button>Filmes parecidos</button>
-          </Link>
-          <button>Adicionar ao carrinho</button>
-        </div>
-      </WrapperCardDetail>
+      <ControllCard>
+        <WrapperCardDetail>
+          <img
+            src={`${image_path}${filmDetails.poster_path}`}
+            alt={`${filmDetails.title}`}
+          />
+          <div>
+            <p>{filmDetails.overview}</p>
+            <button>
+              <a href={`${linkTrailer}`} target="_blank" rel="noreferrer">
+                Trailer
+              </a>
+            </button>
+            <Link to={`/similar/${filmDetails.id}`}>
+              <button>Filmes parecidos</button>
+            </Link>
+            <button>Adicionar ao carrinho</button>
+          </div>
+        </WrapperCardDetail>
+      </ControllCard>
     </WrapperDetail>
   );
 }

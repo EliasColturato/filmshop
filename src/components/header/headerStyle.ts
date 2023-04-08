@@ -19,6 +19,8 @@ export const Logo = styled.div`
 `;
 
 export const NavHeader = styled.div`
+  column-gap: 1rem;
+  display: flex;
   input {
     background: none;
     border: 1px solid ${Color.secondaryColor25};
@@ -28,5 +30,17 @@ export const NavHeader = styled.div`
   input:focus {
     outline: none;
     color: ${Color.white};
+  }
+  button {
+    background-color: ${Color.primaryColor};
+    color: ${Color.white};
+    border: none;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: ${Color.primaryColor25};
   }
 `;

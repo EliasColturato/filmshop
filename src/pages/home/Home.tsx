@@ -60,16 +60,14 @@ export default function Home() {
         <ShelfFilms>
           {filmList.map(item => {
             return (
-              <>
-                <Link to={`/details/${item.id}`}>
-                  <FilmCard
-                    key={item.id}
-                    title={item.title}
-                    backdrop_path={item.backdrop_path}
-                    overview={item.overview}
-                  />
-                </Link>
-              </>
+              <Link to={`/details/${item.id}`}>
+                <FilmCard
+                  key={item.id}
+                  title={item.title}
+                  backdrop_path={item.backdrop_path}
+                  overview={item.overview}
+                />
+              </Link>
             );
           })}
         </ShelfFilms>
